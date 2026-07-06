@@ -22,4 +22,4 @@ Copy `header/` into a project, then in the main document:
 
 From a file one level deeper (e.g. `notes/`), use `\subimport{../header/}{header}` instead: `\subimport` resolves relative to the file that calls it, so this works at any depth.
 
-`example.tex` is a minimal working document exercising a few macros from each topic; compile it directly (`latexmk -pdf example.tex`) to check the header works.
+`example.tex` is a one-page derivation (splitting the Lorentz force into magnetic pressure and tension) that exercises the vector/tensor macros, section and equation cross-referencing, and labelled/unlabelled `align` blocks; compile it directly (`latexmk -pdf example.tex`) to check the header works.
