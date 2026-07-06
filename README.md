@@ -1,7 +1,8 @@
-# LatexTemplates
+# LatexTemplates (Bragi; god of poetry, runes carved on his tongue)
 
-Reusable LaTeX header for MNRAS-style papers, factored out of `kriel-phd-thesis`'s
-`header/` organisation and hardened while building `kriel-beattie-schober-curvature`.
+`bragi` is the LaTeX writing layer of the [Asgard](https://github.com/AstroKriel/Asgard) ecosystem. It holds a reusable header template for MNRAS-style papers, factored out of `kriel-phd-thesis`'s `header/` organisation and hardened while building `kriel-beattie-schober-curvature`.
+
+---
 
 ## Layout
 
@@ -19,6 +20,8 @@ submission risk (it's one more thing that can fail to compile in arXiv's or the 
 build environment), while an unused `\newcommand` is completely inert. So `packages/`
 should be trimmed to what a given paper actually uses before submission; `aliases/` can
 stay comprehensive.
+
+---
 
 ## Using this in a new paper
 
@@ -44,6 +47,8 @@ stay comprehensive.
 6. Add any per-paper macros (e.g. project-specific shorthand) to a new file under
    `header/aliases/`, or to an existing topic file if it fits.
 
+---
+
 ## Before submitting
 
 - Trim `header/packages/*.tex` down to packages the paper actually uses -- an unused
@@ -57,6 +62,8 @@ stay comprehensive.
   test-compile (ideally in a clean directory or via arXiv's own compiler) before relying
   on it for the actual submission -- `\subimport`/subdirectories are supported but are
   newer, less-travelled machinery than a flat `\input` structure.
+
+---
 
 ## Known-unused packages worth reconsidering
 
