@@ -13,22 +13,24 @@
 \section{Decomposing the Lorentz force}
 \label{sec:magnetic-tension}
 
-In MHD, the Lorentz force per unit volume is
+In MHD, the Lorentz force per unit volume\footnote{
+    We adopt rationalised-Gaussian units, such that the current density is $\mVector{j} = \mCurl{\mVector{b}}$ (\ie no factor of $4\pi$).
+} is
 \begin{align}
-    \mVector{f}_L = \frac{1}{4\pi} \rbrac{\mCurl{\mVector{b}}}\times\mVector{b}
+    \mVector{f}_L = \rbrac{\mCurl{\mVector{b}}}\times\mVector{b}
     , \label{eqn:magnetic-tension:lorentz}
 \end{align}
 where $\mVector{b}$ is the magnetic field. Using the identity $\rbrac{\mCurl{\mVector{b}}}\times\mVector{b} = \rbrac{\mVector{b}\cdot\nabla}\mVector{b} - \mGrad{\rbrac{b^2/2}}$,
 \begin{align*}
     \mVector{f}_L
-    = \frac{1}{4\pi} \rbrac{\mVector{b}\cdot\nabla}\mVector{b}
-        - \mGrad{\rbrac{\frac{b^2}{8\pi}}} ,
+    = \rbrac{\mVector{b}\cdot\nabla}\mVector{b}
+        - \mGrad{\rbrac{\frac{b^2}{2}}} ,
 \end{align*}
 \ie \cref{eqn:magnetic-tension:lorentz} is the divergence of the Maxwell stress tensor,
 \begin{align}
     \mVector{f}_L = \mDiv{\mTensor{T}} ,
     \qquad
-    \mTensor{T} \equiv \frac{1}{4\pi} \sbrac{\mVector{b}\otimes\mVector{b} - \frac{b^2}{2} \imatrix}
+    \mTensor{T} \equiv \mVector{b}\otimes\mVector{b} - \frac{b^2}{2} \imatrix
     . \label{eqn:magnetic-tension:stress}
 \end{align}
 
@@ -45,12 +47,19 @@ To see the physical processes hidden within \S\ref{sec:magnetic-tension}, we int
 where $s$ is arc length along the field line. Substituting \cref{eqn:magnetic-tension:decomposition} into \cref{eqn:magnetic-tension:lorentz} gives
 \begin{align}
     \mVector{f}_L
-    = -\mGrad{\rbrac{\frac{b^2}{8\pi}}}
-        + \frac{b^2\kappa}{4\pi} \mVectorUnit{\kappa}
-        + \frac{b}{4\pi} \mppFrac{b}{s} \mVectorUnit{b}
+    &= -\mGrad{\rbrac{\frac{b^2}{2}}}
+        + b^2\kappa \mVectorUnit{\kappa}
+        + b \mppFrac{b}{s} \mVectorUnit{b}
+    \nonumber \\
+    &= b^2 \mVector{\kappa}
+        + \frac{1}{2} \rbrac{\mVectorUnit{b}\otimes\mVectorUnit{b}\cdot\mGrad{\rbrac{b^2}}}
+        - \frac{1}{2} \mGrad{\rbrac{b^2}}
+    \nonumber \\
+    &= b^2 \mVector{\kappa}
+        - \wrapunderbrace[3cm]{\frac{1}{2} \mGradPerp{\rbrac{b^2}}}{pressure gradient orthogonal to the field}
     . \label{eqn:magnetic-tension:final}
 \end{align}
-The first term of \cref{eqn:magnetic-tension:final} is an isotropic \emph{magnetic pressure} gradient, $p_{\mathrm{mag}} = b^2/8\pi$; the second is the \emph{magnetic tension}, \ie it points along $\mVectorUnit{\kappa}$ and is proportional to the field-line curvature $\kappa$, vanishing for straight field lines. Tension acts like a taut string, pulling bent field lines straight; the ratio of thermal to magnetic pressure is the plasma-$\mPlasmaBeta$, and the Alfv\'en Mach number $\mAlfvenMach$ compares this same tension to inertia.
+with $\mGradPerp{\rbrac{b^2}} \equiv \rbrac{\imatrix - \mVectorUnit{b}\otimes\mVectorUnit{b}}\cdot\mGrad{\rbrac{b^2}}$. The first term of \cref{eqn:magnetic-tension:final} is the \emph{magnetic tension}: it points along $\mVectorUnit{\kappa}$, is proportional to the field-line curvature $\kappa$, and vanishes for straight field lines, acting like a taut string pulling bent field lines straight. The second is the \emph{magnetic pressure} gradient, but only the component perpendicular to the field; the component along $\mVectorUnit{b}$ exactly cancels against part of the tension, leaving no magnetic force along the field itself. The ratio of thermal to magnetic pressure is the plasma-$\mPlasmaBeta$, and the Alfv\'en Mach number $\mAlfvenMach$ compares this same tension to inertia.
 
 \TODO{Sanity check the sign and prefactor conventions against your preferred reference.}
 
