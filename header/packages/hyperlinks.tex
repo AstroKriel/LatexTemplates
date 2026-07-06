@@ -3,16 +3,16 @@
 %% which this input order guarantees.
 \makeatletter
 \@ifpackageloaded{hyperref}{}{\usepackage{hyperref}}
-\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}} % for: more reliable PDF bookmarks/outline than hyperref alone
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}} % more reliable PDF bookmarks/outline than hyperref alone
 \makeatother
 
 \hypersetup{
-  colorlinks=true,
-  linkcolor=Blue, % sections, equations, figures (requires dvipsnames, see packages/figures)
-  citecolor=Red,  % citations
-  urlcolor=Red,   % URLs
+    colorlinks=true,
+    linkcolor=Blue, % sections, equations, figures (requires dvipsnames, see packages/figures)
+    citecolor=Red, % citations
+    urlcolor=Red, % URLs
 }
 
 \makeatletter
-\@ifpackageloaded{cleveref}{}{\usepackage[nameinlink]{cleveref}} % for: referencing a range of eqns; nameinlink makes the whole "Section N" clickable
+\@ifpackageloaded{cleveref}{}{\usepackage[nameinlink]{cleveref}} % referencing a range of eqns; nameinlink makes the whole "Section N" clickable
 \makeatother
