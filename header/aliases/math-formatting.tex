@@ -4,3 +4,7 @@
 \bragiProvideCommand{\mFracSlant}[2]{\ensuremath{#1/#2}}
 \bragiProvideCommand{\EvalAtH}[3]{\ensuremath{\!\sbrac{#1,\,#2,\,#3}}}
 \bragiProvideCommand{\EvalAtV}[3]{\ensuremath{\!\begin{bmatrix}#1\\#2\\#3\end{bmatrix}}}
+
+%% underbrace with a width-constrained, centred label (requires amsmath); e.g.
+%% \wrapunderbrace[3cm]{\text{math}}{descriptive label}
+\bragiProvideCommand{\wrapunderbrace}[3][3cm]{\underbrace{#2}_{\parbox{#1}{\centering\footnotesize #3}}}
