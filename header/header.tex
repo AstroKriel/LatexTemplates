@@ -3,6 +3,18 @@
 %% regardless of the calling document's directory depth (e.g. main.tex at the project
 %% root, or a note one level down in notes/*.tex).
 
+%% aliases/*.tex define macros with this instead of \newcommand: if the surrounding
+%% document/class/template already defines the same name, this keeps that existing
+%% definition and prints a warning instead of a hard "already defined" compile error.
+\makeatletter
+\newcommand{\bragiProvideCommand}[1]{%
+  \@ifundefined{\expandafter\@gobble\string#1}{}{%
+    \ClassWarningNoLine{bragi}{\string#1\space is already defined elsewhere; keeping the existing definition}%
+  }%
+  \providecommand#1%
+}
+\makeatother
+
 %% --- packages
 \subimport{packages/}{layout}
 \subimport{packages/}{typography}

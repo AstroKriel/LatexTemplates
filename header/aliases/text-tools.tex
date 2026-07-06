@@ -1,20 +1,20 @@
 %% latin shorthand (requires xspace)
-\newcommand{\ie}{i.e.,\xspace} % id est
-\newcommand{\eg}{e.g.,\xspace} % exempli gratia
-\newcommand{\etc}{etc.\xspace} % et cetera
-\newcommand{\viz}{viz.,\xspace} % videlicet
+\bragiProvideCommand{\ie}{i.e.,\xspace} % id est
+\bragiProvideCommand{\eg}{e.g.,\xspace} % exempli gratia
+\bragiProvideCommand{\etc}{etc.\xspace} % et cetera
+\bragiProvideCommand{\viz}{viz.,\xspace} % videlicet
 
 %% quotes (requires graphicx)
-\newcommand{\OpenQuote}{\scalebox{1.5}{``}}
-\newcommand{\CloseQuote}{\scalebox{1.5}{''}}
-\newcommand{\QuoteBy}[2]{\OpenQuote \textit{#1} \CloseQuote\newline --- #2}
+\bragiProvideCommand{\OpenQuote}{\scalebox{1.5}{``}}
+\bragiProvideCommand{\CloseQuote}{\scalebox{1.5}{''}}
+\bragiProvideCommand{\QuoteBy}[2]{\OpenQuote \textit{#1} \CloseQuote\newline --- #2}
 
-\newcommand{\centeronpage}[1]{%
+\bragiProvideCommand{\centeronpage}[1]{%
       \noindent
       \hspace*{-0.5\dimexpr\paperwidth-\textwidth\relax}%
       \makebox[\paperwidth][c]{#1}%
 }
 
 %% draft aids -- strip \TODO/\mhl usages before final submission
-\newcommand{\TODO}[1]{\hl{TODO:} #1} % requires 'soul'
-\newcommand{\mhl}[1]{\colorbox{yellow}{$\displaystyle #1$}} % requires 'soul' and 'xcolor'
+\bragiProvideCommand{\TODO}[1]{\hl{TODO:} #1} % requires 'soul'
+\bragiProvideCommand{\mhl}[1]{\colorbox{yellow}{$\displaystyle #1$}} % requires 'soul' and 'xcolor'
