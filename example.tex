@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
 \usepackage{import}
 \subimport{header/}{header}
 
@@ -14,42 +15,42 @@
 
 In ideal MHD, the Lorentz force per unit volume is
 \begin{align}
-    \mVector{f}_L = \frac{1}{4\pi}(\mCurl{\mVector{b}})\times\mVector{b}
+    \mVector{f}_L = \frac{1}{4\pi} \rbrac{\mCurl{\mVector{b}}}\times\mVector{b}
     , \label{eqn:magnetic-tension:lorentz}
 \end{align}
-where $\mVector{b}$ is the magnetic field. Using the identity $(\mCurl{\mVector{b}})\times\mVector{b} = (\mVector{b}\cdot\nabla)\mVector{b} - \mGrad{\rbrac{b^2/2}}$,
+where $\mVector{b}$ is the magnetic field. Using the identity $\rbrac{\mCurl{\mVector{b}}}\times\mVector{b} = \rbrac{\mVector{b}\cdot\nabla}\mVector{b} - \mGrad{\rbrac{b^2/2}}$,
 \begin{align*}
     \mVector{f}_L
-    = \frac{1}{4\pi}(\mVector{b}\cdot\nabla)\mVector{b}
+    = \frac{1}{4\pi} \rbrac{\mVector{b}\cdot\nabla}\mVector{b}
         - \mGrad{\rbrac{\frac{b^2}{8\pi}}} ,
 \end{align*}
-i.e. \cref{eqn:magnetic-tension:lorentz} is the divergence of the Maxwell stress tensor,
+\ie \cref{eqn:magnetic-tension:lorentz} is the divergence of the Maxwell stress tensor,
 \begin{align}
     \mVector{f}_L = \mDiv{\mTensor{T}} ,
     \qquad
-    \mTensor{T} \equiv \frac{1}{4\pi}\sbrac{\mVector{b}\otimes\mVector{b} - \frac{b^2}{2}\imatrix}
+    \mTensor{T} \equiv \frac{1}{4\pi} \sbrac{\mVector{b}\otimes\mVector{b} - \frac{b^2}{2} \imatrix}
     . \label{eqn:magnetic-tension:stress}
 \end{align}
 
 \subsection{Pressure and tension}
 \label{sec:magnetic-tension:decomposition}
 
-To read off the physical content of \S\ref{sec:magnetic-tension}, write $\mVector{b} = b\mVectorUnit{b}$ and split $(\mVector{b}\cdot\nabla)\mVector{b}$ along $\mVectorUnit{b}$ and along the principal normal $\mVectorUnit{n}$ of the field lines,
+To read off the physical content of \S\ref{sec:magnetic-tension}, write $\mVector{b} = b \mVectorUnit{b}$ and split $\rbrac{\mVector{b}\cdot\nabla}\mVector{b}$ along $\mVectorUnit{b}$ and along the principal normal $\mVectorUnit{n}$ of the field lines,
 \begin{align}
-    (\mVector{b}\cdot\nabla)\mVector{b}
-    = b\mppFrac{b}{s}\mVectorUnit{b}
-        + b^2\kappa\,\mVectorUnit{n}
+    \rbrac{\mVector{b}\cdot\nabla}\mVector{b}
+    = b \mppFrac{b}{s} \mVectorUnit{b}
+        + b^2\kappa \mVectorUnit{n}
     , \label{eqn:magnetic-tension:decomposition}
 \end{align}
-where $s$ is arc length along the field line and $\kappa \equiv \nbrac{(\mVectorUnit{b}\cdot\nabla)\mVectorUnit{b}}$ is the field-line curvature. Substituting \cref{eqn:magnetic-tension:decomposition} into \cref{eqn:magnetic-tension:lorentz} gives
+where $s$ is arc length along the field line and $\kappa \equiv \nbrac{\rbrac{\mVectorUnit{b}\cdot\nabla}\mVectorUnit{b}}$ is the field-line curvature. Substituting \cref{eqn:magnetic-tension:decomposition} into \cref{eqn:magnetic-tension:lorentz} gives
 \begin{align}
     \mVector{f}_L
     = -\mGrad{\rbrac{\frac{b^2}{8\pi}}}
-        + \frac{b^2\kappa}{4\pi}\mVectorUnit{n}
-        + \frac{b}{4\pi}\mppFrac{b}{s}\mVectorUnit{b}
+        + \frac{b^2\kappa}{4\pi} \mVectorUnit{n}
+        + \frac{b}{4\pi} \mppFrac{b}{s} \mVectorUnit{b}
     . \label{eqn:magnetic-tension:final}
 \end{align}
-The first term of \cref{eqn:magnetic-tension:final} is an isotropic \emph{magnetic pressure} gradient, $p_{\mathrm{mag}} = b^2/8\pi$; the second is the \emph{magnetic tension}, i.e.\ it points along $\mVectorUnit{n}$ and is proportional to the field-line curvature $\kappa$, vanishing for straight field lines. Tension acts like a taut string, pulling bent field lines straight; the ratio of thermal to magnetic pressure is the plasma-$\mPlasmaBeta$, and the Alfv\'en Mach number $\mAlfvenMach$ compares this same tension to inertia.
+The first term of \cref{eqn:magnetic-tension:final} is an isotropic \emph{magnetic pressure} gradient, $p_{\mathrm{mag}} = b^2/8\pi$; the second is the \emph{magnetic tension}, \ie it points along $\mVectorUnit{n}$ and is proportional to the field-line curvature $\kappa$, vanishing for straight field lines. Tension acts like a taut string, pulling bent field lines straight; the ratio of thermal to magnetic pressure is the plasma-$\mPlasmaBeta$, and the Alfv\'en Mach number $\mAlfvenMach$ compares this same tension to inertia.
 
 \TODO{Sanity check the sign and prefactor conventions against your preferred reference.}
 
