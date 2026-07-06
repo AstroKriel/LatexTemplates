@@ -1,6 +1,6 @@
 # LatexTemplates (Bragi; god of poetry, runes carved on his tongue)
 
-`bragi` is the LaTeX writing layer of the [Asgard](https://github.com/AstroKriel/Asgard) ecosystem. It holds a reusable header template for MNRAS-style papers, factored out of `kriel-phd-thesis`'s `header/` organisation and hardened while building `kriel-beattie-schober-curvature`.
+`bragi` is the LaTeX writing layer of the [Asgard](https://github.com/AstroKriel/Asgard) ecosystem. It holds a reusable header template for MNRAS-style papers: useful packages and macros, organised in one place.
 
 ---
 
@@ -15,11 +15,8 @@ header/
 └── aliases/           \newcommand macros only, one topic per file
 ```
 
-`packages/` and `aliases/` are kept separate on purpose: an unused `\usepackage` is a real
-submission risk (it's one more thing that can fail to compile in arXiv's or the journal's
-build environment), while an unused `\newcommand` is completely inert. So `packages/`
-should be trimmed to what a given paper actually uses before submission; `aliases/` can
-stay comprehensive.
+`packages/` and `aliases/` are kept separate so each file has one clear purpose:
+`packages/` is document/journal setup, `aliases/` is shorthand macros for writing content.
 
 ---
 
@@ -46,29 +43,3 @@ stay comprehensive.
 5. Add any per-paper citation shortcuts to `header/aliases/ref-citealiases.tex`.
 6. Add any per-paper macros (e.g. project-specific shorthand) to a new file under
    `header/aliases/`, or to an existing topic file if it fits.
-
----
-
-## Before submitting
-
-- Trim `header/packages/*.tex` down to packages the paper actually uses -- an unused
-  `\usepackage` is pure risk for zero benefit.
-- Strip `\TODO{...}` / `\mhl{...}` usages (draft highlighting aids, see
-  `aliases/text-tools.tex`) -- fine for working copies, not for a submitted manuscript.
-- Confirm the bibliography is built with classic `bibtex` (`\bibliographystyle` +
-  `\bibliography`), not `biblatex`/`biber` -- arXiv and most journal pipelines expect a
-  bibtex-generated `.bbl`.
-- If anything lives in a subdirectory beyond `header/` and `notes/`, do a fresh
-  test-compile (ideally in a clean directory or via arXiv's own compiler) before relying
-  on it for the actual submission -- `\subimport`/subdirectories are supported but are
-  newer, less-travelled machinery than a flat `\input` structure.
-
----
-
-## Known-unused packages worth reconsidering
-
-`header/packages/` currently includes some packages already known to be unused in
-practice (e.g. `pstricks` was deliberately dropped from `packages/figures.tex` for this
-reason -- it predates native `pdflatex` support and needs extra compatibility packages to
-work without the dvips pipeline). Don't add packages "just in case" -- add them when a
-document actually needs them.
