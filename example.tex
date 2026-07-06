@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{import}
+\subimport{header/}{header}
+
+\title{Example document}
+\author{Your Name}
+\date{}
+
+\begin{document}
+\maketitle
+
+This is a minimal example showing the header wired up and a few of its macros in use.
+
+The magnetic field $\mVector{b}$ has unit tangent $\mVectorUnit{b}$, and the sonic Mach number is denoted $\mSonicMach$. A vector calculus relation,
+\begin{align}
+    \mDiv{\mVector{u}} = 0
+    , \label{eqn:example:incompressible}
+\end{align}
+is referenced here via \cref{eqn:example:incompressible}. Latin shorthand like \ie and \eg use \xspace for spacing, and units such as $1\,\upc$ or $1\,\umyr$ are available too.
+
+\TODO{This note is a reminder.}
+
+\end{document}

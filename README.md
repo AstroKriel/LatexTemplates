@@ -21,3 +21,5 @@ Copy `header/` into a project, then in the main document:
 ```
 
 From a file one level deeper (e.g. `notes/`), use `\subimport{../header/}{header}` instead: `\subimport` resolves relative to the file that calls it, so this works at any depth.
+
+`example.tex` is a minimal working document exercising a few macros from each topic; compile it directly (`latexmk -pdf example.tex`) to check the header works.
