@@ -1,0 +1,38 @@
+## latex auxiliary file
+*.aux
+
+## bibtex bibliography
+*.bbl
+
+## bibtex log
+*.blg
+
+## latexmk file database
+*.fdb_latexmk
+
+## latexmk file list
+*.fls
+
+## latex log
+*.log
+
+## hyperref outline
+*.out
+
+## synctex source correlation data
+*.synctex.gz
+
+## compiled pdf
+*.pdf
+
+## table of contents
+*.toc
+
+## list of figures
+*.lof
+
+## list of tables
+*.lot
+
+## track figure PDFs
+!figures/**/*.pdf

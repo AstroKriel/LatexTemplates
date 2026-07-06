@@ -1,0 +1,14 @@
+%% mnras.cls already loads hyperref itself (with pdfpagelabels=false and its own
+%% colorlinks setup); bookmark and the link-colour override just need to come after it,
+%% which this input order guarantees. If you're not using mnras.cls, load hyperref here
+%% explicitly before bookmark/hypersetup.
+\usepackage{bookmark} % for: more reliable PDF bookmarks/outline than hyperref alone
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=Blue, % sections, equations, figures (requires dvipsnames, see packages/figures)
+  citecolor=Red,  % citations
+  urlcolor=Red,   % URLs
+}
+
+\usepackage[nameinlink]{cleveref} % for: referencing a range of eqns; nameinlink makes the whole "Section N" clickable

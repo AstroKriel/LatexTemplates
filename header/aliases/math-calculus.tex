@@ -1,0 +1,23 @@
+%% vector calculus operators
+\newcommand{\mDiv}[1]{\nabla \cdot #1} % divergence
+\newcommand{\mCurl}[1]{\nabla \times #1} % curl
+\newcommand{\mGrad}[1]{\nabla #1} % gradient
+\newcommand{\mLaplace}[1]{\Delta #1} % Laplacian (for scalar fields)
+
+%% vectors / tensors
+\newcommand{\mUnit}[1]{\widehat{#1}}
+\newcommand{\mVector}[1]{\bm{#1}} % requires bm
+\newcommand{\mVectorUnit}[1]{\mUnit{\mVector{#1}}} % unit vector
+\newcommand{\mVectorBase}[1]{\hat{\mVector{e}}_{#1}} % basis vector
+\newcommand{\mTensor}[1]{\mathbb{#1}} % tensor font
+\newcommand{\imatrix}{\mTensor{I}} % identity matrix
+
+%% differentials
+\newcommand{\mdd}[1]{\mathrm{d} #1}
+\newcommand{\mpp}[1]{\partial #1}
+\newcommand{\mDD}[1]{\mathrm{D} #1}
+
+%% derivatives in fractional form
+\newcommand{\mddFrac}[2]{\frac{\mdd{#1}}{\mdd{#2}}}
+\newcommand{\mppFrac}[2]{\frac{\mpp{#1}}{\mpp{#2}}}
+\newcommand{\mDDFrac}[2]{\frac{\mDD{#1}}{\mDD{#2}}}

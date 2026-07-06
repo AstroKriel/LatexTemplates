@@ -1,0 +1,12 @@
+%% bibliography: mnras.cls already provides natbib (usenatbib class option) and the
+%% standard AAS journal-name shortcuts (\apj, \aap, \mnras, \pre, etc. -- see mnras.cls),
+%% so refs.bib can reference those directly without redefining them here.
+%%
+%% use classic bibtex (\bibliographystyle + \bibliography), not biblatex/biber --
+%% arXiv and most journal submission pipelines expect a bibtex-generated .bbl.
+
+%% fix: bibtex sorts/labels by the "von" part of a name (e.g. "van der Something");
+%% this disables that so surnames like "van X" sort/cite under "V".
+\DeclareRobustCommand{\VAN}[3]{#2}
+\let\VANthebibliography\thebibliography
+\def\thebibliography{\DeclareRobustCommand{\VAN}[3]{##3}\VANthebibliography}

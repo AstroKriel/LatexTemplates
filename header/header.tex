@@ -1,0 +1,26 @@
+%% requires the 'import' package (loaded by whichever document \subimport-s this file);
+%% \subimport resolves paths relative to THIS file, so header.tex works unmodified
+%% regardless of the calling document's directory depth (e.g. main.tex at the project
+%% root, or a note one level down in notes/*.tex).
+
+%% --- packages
+\subimport{packages/}{layout}
+\subimport{packages/}{typography}
+\subimport{packages/}{floats}
+\subimport{packages/}{refs}
+\subimport{packages/}{math}
+\subimport{packages/}{figures}
+\subimport{packages/}{tables}
+\subimport{packages/}{text-tools}
+\subimport{packages/}{hyperlinks} % best to keep this last
+
+%% --- aliases
+\subimport{aliases/}{math-brackets}
+\subimport{aliases/}{math-calculus}
+\subimport{aliases/}{math-formatting}
+\subimport{aliases/}{math-symbols}
+\subimport{aliases/}{units}
+\subimport{aliases/}{text-tools}
+\subimport{aliases/}{title-page}
+\subimport{aliases/}{utils}
+\subimport{aliases/}{ref-citealiases} % best to keep this last
