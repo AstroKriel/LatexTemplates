@@ -6,9 +6,9 @@
 
 ```
 header/
-├── header.tex   single entry point; \subimport-s everything below
-├── packages/    \usepackage lines, one topic per file
-└── aliases/     \newcommand macros, one topic per file
+├── header.tex  # single entry point; \subimport-s everything below
+├── packages/   # \usepackage lines, one topic per file
+└── aliases/    # \newcommand macros, one topic per file
 ```
 
 ## Usage
