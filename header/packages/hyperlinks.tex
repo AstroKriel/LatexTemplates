@@ -1,8 +1,10 @@
-%% mnras.cls already loads hyperref itself (with pdfpagelabels=false and its own
-%% colorlinks setup); bookmark and the link-colour override just need to come after it,
-%% which this input order guarantees. If you're not using mnras.cls, load hyperref here
-%% explicitly before bookmark/hypersetup.
-\usepackage{bookmark} % for: more reliable PDF bookmarks/outline than hyperref alone
+%% load hyperref only if the document class hasn't already (many journal classes,
+%% e.g. mnras.cls, load it themselves); bookmark and cleveref just need to come after it,
+%% which this input order guarantees.
+\makeatletter
+\@ifpackageloaded{hyperref}{}{\usepackage{hyperref}}
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}} % for: more reliable PDF bookmarks/outline than hyperref alone
+\makeatother
 
 \hypersetup{
   colorlinks=true,
@@ -11,4 +13,6 @@
   urlcolor=Red,   % URLs
 }
 
-\usepackage[nameinlink]{cleveref} % for: referencing a range of eqns; nameinlink makes the whole "Section N" clickable
+\makeatletter
+\@ifpackageloaded{cleveref}{}{\usepackage[nameinlink]{cleveref}} % for: referencing a range of eqns; nameinlink makes the whole "Section N" clickable
+\makeatother

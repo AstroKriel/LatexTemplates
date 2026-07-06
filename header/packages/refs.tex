@@ -1,7 +1,9 @@
-%% bibliography: mnras.cls already provides natbib (usenatbib class option) and the
-%% standard AAS journal-name shortcuts (\apj, \aap, \mnras, \pre, etc. -- see mnras.cls),
-%% so refs.bib can reference those directly without redefining them here.
-%%
+%% load natbib only if the document class hasn't already (e.g. mnras.cls with the
+%% usenatbib option loads it itself; a plain article wouldn't have it yet)
+\makeatletter
+\@ifpackageloaded{natbib}{}{\usepackage[authoryear]{natbib}}
+\makeatother
+
 %% use classic bibtex (\bibliographystyle + \bibliography), not biblatex/biber --
 %% arXiv and most journal submission pipelines expect a bibtex-generated .bbl.
 
